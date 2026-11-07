@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="icons/icon32.png" width="24" height="24" alt="">
+    <h1>CF Themer</h1>
+    <span class="ver" id="ver"></span>
+  </header>
+
+  <div class="label">Theme</div>
+  <div id="themes" class="grid"></div>
+
+  <div class="label">Sample size</div>
+  <div class="row">
+    <label class="size">
+      <input id="size" type="number" min="0" max="30" step="1">
+      <span>px · 0 = default</span>
+    </label>
+  </div>
+
+  <div class="label">Options</div>
+  <label class="check"><input id="hideTags" type="checkbox"> Hide problem tags</label>
+  <label class="check"><input id="hideRating" type="checkbox"> Hide problem difficulty</label>
+  <label class="check"><input id="hideSolved" type="checkbox"> Hide solved counts</label>
+  <label class="check"><input id="contrastFix" type="checkbox"> Auto-fix light boxes &amp; dark text</label>
+  <label class="check"><input id="widget" type="checkbox"> Floating theme button</label>
+
+  <div class="label">Practice</div>
+  <label class="check"><input id="problemTools" type="checkbox"> Problem timer &amp; notes</label>
+  <label class="check"><input id="focus" type="checkbox"> Focus mode on problem pages</label>
+
+  <div class="label">Mashup</div>
+  <button id="mashup" class="btn" type="button">Create a mashup contest…</button>
+
+  <p class="foot"><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> themes &nbsp;·&nbsp; <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> focus</p>
+
+  <script src="themes.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --accent: #bd93f9; --bg: #14151e; --surface: #1c1d2a; --surface2: #242535; --border: #2e3044; --fg: #e6e6ec; --muted: #6f748a; }
+
+body {
+  width: 340px;
+  margin: 0;
+  padding: 16px;
+  font: 13px/1.45 system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+header img {
+  border-radius: 6px;
+}
+h1 {
+  font-size: 15px;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, var(--fg), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ver {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1px 6px;
+  border-radius: 10px;
+  letter-spacing: 0.02em;
+}
+
+.label {
+  margin: 16px 0 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.theme {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  cursor: pointer;
+  text-align: left;
+  background: var(--surface);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+}
+.theme:hover {
+  border-color: #4a5070;
+  background: var(--surface2);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.theme.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent) inset, 0 2px 12px color-mix(in srgb, var(--accent) 20%, transparent);
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+}
+
+.dots {
+  display: flex;
+  flex: none;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+.dots i {
+  width: 8px;
+  height: 22px;
+  display: block;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+select, input[type=number] {
+  background: var(--surface);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 8px;
+  font: inherit;
+  font-size: 12px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+select:focus, input[type=number]:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+select { flex: 1; }
+input[type=number] { width: 54px; }
+.size {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  cursor: pointer;
+  font-size: 12.5px;
+  border-radius: 4px;
+  transition: background 0.15s ease;
+}
+.check:hover {
+  background: color-mix(in srgb, var(--fg) 4%, transparent);
+}
+.check input {
+  accent-color: var(--accent);
+  width: 14px;
+  height: 14px;
+}
+
+.btn {
+  width: 100%;
+  padding: 9px 10px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--fg);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  transition: background 0.18s ease;
+}
+.btn:hover { background: color-mix(in srgb, var(--accent) 20%, var(--surface)); }
+
+.foot {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+kbd {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font: inherit;
+  font-size: 10.5px;
+  font-weight: 600;
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.theme[data-id="lockin"] {
+  border-color: #2b2b2b;
+  background: #000;
+}
+.theme[data-id="lockin"]:hover {
+  border-color: #ff3b30;
+  background: #0b0b0b;
+  box-shadow: none;
+  transform: none;
+}
+.theme[data-id="lockin"].active {
+  border-color: #ff3b30;
+  box-shadow: 0 0 0 1px #ff3b30 inset;
+  background: #0b0b0b;
+}
+.theme[data-id="lockin"] span:last-child {
+  color: #ededed;
+}

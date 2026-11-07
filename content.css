@@ -1,0 +1,1001 @@
+
+@media print { #cfx-widget, #cfx-pt, #cfx-mc, #cfx-focus-exit { display: none !important; } }
+
+@media screen {
+
+/* Base & Typography */
+html[data-cfx] :is(.roundbox, .menu-box, .roundbox .caption, .roundbox .titled, .roundbox .roundbox-title,
+    .second-level-menu, .tag-box, .pagination a, input, textarea, select, button, pre, .prettyprint,
+    tt, code, kbd, samp, .sample-test .input, .sample-test .output, .spoiler-content, .menu-list > li > a,
+    .second-level-menu-list > li > a, .note, blockquote, .userbox, .input-output-copier, .ac_results, .tippy-box,
+    .tooltip, .dropdown-menu, .ui-dialog, .ui-widget-content, .ui-datepicker, .ui-menu, .ui-autocomplete,
+    .avatar-img, .avatar img, #tooltip, #cfx-panel, #cfx-fab, #cfx-pt-chip, #cfx-pt-panel,
+    #cfx-pt .cfx-pt-row button, #cfx-pt textarea, #cfx-focus-exit,
+    #cfx-mc-chip, #cfx-mc-panel, #cfx-mc .cfx-mc-btn),
+html[data-cfx] input::file-selector-button { border-radius: 0 !important; }
+
+html[data-cfx] { color-scheme: dark; scrollbar-color: var(--cfx-border) var(--cfx-bg); }
+html[data-cfx] ::selection { background: color-mix(in srgb, var(--cfx-accent) 38%, transparent); color: inherit; }
+html[data-cfx] ::placeholder { color: var(--cfx-muted); opacity: 0.8; }
+html[data-cfx] input, html[data-cfx] progress { accent-color: var(--cfx-accent); }
+
+html[data-cfx] body,
+html[data-cfx] #body,
+html[data-cfx] #pageContent {
+  background: var(--cfx-bg) !important;
+  color: var(--cfx-fg) !important;
+}
+html[data-cfx] .ttypography,
+html[data-cfx] .problem-statement,
+html[data-cfx] .comment-table,
+html[data-cfx] .info,
+html[data-cfx] .content-with-sidebar { color: var(--cfx-fg); }
+
+html[data-cfx] .ttypography :is(h1, h2, h3, h4, h5, h6) { color: var(--cfx-fg) !important; }
+html[data-cfx] .ttypography :is([style*="color: black" i], [style*="color:black" i], [style*="#000000" i],
+                                [style*="color: #000" i], [style*="color:#000" i], [style*="rgb(0, 0, 0)" i]) { color: var(--cfx-fg) !important; }
+
+html[data-cfx] a,
+html[data-cfx] button,
+html[data-cfx] input[type="submit"],
+html[data-cfx] .roundbox,
+html[data-cfx] .tag-box,
+html[data-cfx] .pagination a,
+html[data-cfx] .menu-list > li > a,
+html[data-cfx] .second-level-menu-list > li > a,
+html[data-cfx] .input-output-copier {
+  transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease,
+              box-shadow 0.18s ease, opacity 0.18s ease !important;
+}
+
+html[data-cfx][data-cfx-noanim][data-cfx-noanim] *,
+html[data-cfx][data-cfx-noanim][data-cfx-noanim] *::before,
+html[data-cfx][data-cfx-noanim][data-cfx-noanim] *::after { transition: none !important; }
+
+html[data-cfx] ::-webkit-scrollbar { width: 10px; height: 10px; }
+html[data-cfx] ::-webkit-scrollbar-track { background: var(--cfx-bg); }
+html[data-cfx] ::-webkit-scrollbar-thumb {
+  background: var(--cfx-border);
+  border-radius: 5px;
+  border: 2px solid var(--cfx-bg);
+}
+html[data-cfx] ::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--cfx-fg) 30%, var(--cfx-border)); }
+
+html[data-cfx] :where(a:not(.rated-user):not([class*="user-"])),
+html[data-cfx] :where(a:not(.rated-user):not([class*="user-"])):visited { color: var(--cfx-link) !important; }
+html[data-cfx] .ttypography :where(a:not(.rated-user):not([class*="user-"])),
+html[data-cfx] .comment-table :where(a:not(.rated-user):not([class*="user-"])) {
+  text-decoration: underline;
+  text-decoration-color: var(--cfx-muted);
+  text-underline-offset: 2px;
+}
+html[data-cfx] :where(a:not(.rated-user):not([class*="user-"])):hover {
+  color: var(--cfx-accent) !important;
+  text-decoration-color: color-mix(in srgb, var(--cfx-accent) 50%, transparent) !important;
+}
+
+html[data-cfx] .user-gray, html[data-cfx] a.user-gray, html[data-cfx] span.user-gray { color: var(--cfx-fg) !important; }
+
+html[data-cfx] :is(.topic .title, .topic .title a, .topic .title span, .contest-name a) { color: var(--cfx-fg) !important; }
+html[data-cfx] :is(.topic .title a, .contest-name a):hover { color: var(--cfx-accent) !important; }
+html[data-cfx] .contest-state-phase { color: var(--cfx-accent) !important; }
+html[data-cfx] .small, html[data-cfx] .notice, html[data-cfx] .gray { color: var(--cfx-muted) !important; }
+html[data-cfx] hr {
+  border: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, var(--cfx-border), transparent) !important;
+}
+html[data-cfx] blockquote {
+  border-left: 3px solid var(--cfx-accent) !important;
+  background: color-mix(in srgb, var(--cfx-accent) 5%, transparent) !important;
+  padding: 8px 16px !important;
+  border-radius: 0 6px 6px 0 !important;
+}
+
+html[data-cfx] .roundbox .caption,
+html[data-cfx] .roundbox .titled,
+html[data-cfx] .roundbox .roundbox-title {
+  position: relative !important;
+}
+html[data-cfx] .sidebar-caption-icon {
+  position: absolute !important;
+  right: 12px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  float: none !important;
+  margin: 0 !important;
+  font-size: 1.3rem !important;
+  line-height: 1 !important;
+  color: var(--cfx-muted) !important;
+  cursor: pointer !important;
+}
+html[data-cfx] .sidebar-caption-icon:hover {
+  color: var(--cfx-accent) !important;
+}
+
+html[data-cfx] #header img[src*="codeforces-sponsored"],
+html[data-cfx] #header a[href="/"] > img,
+html[data-cfx] #header img[alt="Codeforces"] {
+  filter: invert(1) hue-rotate(180deg);
+  mix-blend-mode: lighten;
+  background: transparent !important;
+}
+
+html[data-cfx] #header {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--cfx-fg) !important;
+  padding-bottom: 4px !important;
+}
+
+html[data-cfx] .lang-chooser {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--cfx-fg) !important;
+}
+html[data-cfx] #footer,
+html[data-cfx] .footer {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--cfx-muted) !important;
+  border-top: 1px solid var(--cfx-border) !important;
+}
+
+html[data-cfx] .roundbox {
+  background: var(--cfx-panel) !important;
+  border: 1px solid var(--cfx-border) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 8px color-mix(in srgb, #000 18%, transparent),
+              0 0 1px color-mix(in srgb, var(--cfx-fg) 5%, transparent) !important;
+  color: var(--cfx-fg);
+  overflow: hidden !important;   
+}
+html[data-cfx] .sidebox:has(.tag-box) > div:last-child,
+html[data-cfx] .roundbox:has(.tag-box) > div:last-child {
+  display: flow-root !important;
+  padding: 10px 12px 14px !important;
+}
+html[data-cfx] .sidebox:has(.tag-box) div:has(> .notice),
+html[data-cfx] .sidebox:has(.tag-box) div[style*="clear:both"],
+html[data-cfx] .roundbox:has(.tag-box) div:has(> .notice),
+html[data-cfx] .roundbox:has(.tag-box) div[style*="clear:both"] {
+  clear: both !important;
+  margin-top: 12px !important;
+  padding-top: 6px !important;
+  line-height: 1.4 !important;
+}
+html[data-cfx] .roundbox .caption,
+html[data-cfx] .roundbox .titled,
+html[data-cfx] .roundbox .roundbox-title {
+  background: linear-gradient(180deg, var(--cfx-panel2), color-mix(in srgb, var(--cfx-panel2) 80%, var(--cfx-panel))) !important;
+  color: var(--cfx-accent) !important;
+  border-color: var(--cfx-border) !important;
+  border-radius: 9px 9px 0 0 !important;
+  padding: 10px 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+}
+html[data-cfx] :is(.ilt, .irt, .ilb, .irb) { display: none !important; }
+html[data-cfx] .roundbox-lt, html[data-cfx] .roundbox-rt,
+html[data-cfx] .roundbox-lb, html[data-cfx] .roundbox-rb,
+html[data-cfx] .datatable .lt, html[data-cfx] .datatable .rt,
+html[data-cfx] .datatable .lb, html[data-cfx] .datatable .rb { display: none !important; }
+
+html[data-cfx] .roundbox :is(li, ul, ol, dl, dd, dt):not([id*="vote-"]):not([class*="vote-"]),
+html[data-cfx] :is([class*="material"], .contest-material) :is(li, a) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+html[data-cfx] :is(.roundbox, .sidebox, [class*="material"]) li {
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--cfx-fg) !important;
+}
+html[data-cfx] :is(
+  [style*="background-color: white" i], [style*="background-color:white" i],
+  [style*="background: white" i],       [style*="background:white" i],
+  [style*="background-color: #fff" i],  [style*="background-color:#fff" i],
+  [style*="background: #fff" i],        [style*="background:#fff" i]
+):not(svg *):not(img):not(mark) {
+  background: var(--cfx-panel) !important;
+  background-color: var(--cfx-panel) !important;
+}
+
+html[data-cfx] li.backLava { display: none !important; }
+
+/* Navigation & Menus */
+html[data-cfx] .menu-box { position: relative !important; }
+html[data-cfx] [data-cfx-search] {
+  position: absolute !important;
+  right: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  float: none !important;
+  margin: 0 !important;
+  z-index: 1;
+}
+html[data-cfx] [data-cfx-search] :is(input, form) { margin: 0 !important; }
+html[data-cfx] .menu-box:has([data-cfx-search]) { padding-right: 160px !important; }
+
+html[data-cfx] .menu-box,
+html[data-cfx] .roundbox.menu-box {
+  background: color-mix(in srgb, var(--cfx-panel2) 45%, var(--cfx-bg)) !important;
+  background-image: none !important;
+  border: 1px solid var(--cfx-border) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  padding: 0 6px !important;
+  color: var(--cfx-fg) !important;
+}
+html[data-cfx] ul.menu-list,
+html[data-cfx] ul.main-menu-list {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  position: relative !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+html[data-cfx] .menu-list > li:not(.backLava) {
+  display: flex !important;
+  align-items: stretch !important;
+  float: none !important;
+  position: static !important;
+  top: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html[data-cfx] .menu-list > li > a {
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+  top: auto !important;
+  box-sizing: border-box !important;
+  height: 34px !important;
+  margin: 0 !important;
+  padding: 0 14px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  color: var(--cfx-muted) !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+html[data-cfx] .menu-list > li > a:hover {
+  color: var(--cfx-fg) !important;
+  background: color-mix(in srgb, var(--cfx-fg) 8%, transparent) !important;
+}
+html[data-cfx] .menu-list > li:is(.current, .selectedLava) > a {
+  color: var(--cfx-fg) !important;
+  background: color-mix(in srgb, var(--cfx-accent) 14%, transparent) !important;
+  box-shadow: inset 0 -2px 0 var(--cfx-accent) !important;
+}
+
+html[data-cfx] .second-level-menu {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--cfx-fg) !important;
+}
+html[data-cfx] ul.second-level-menu-list {
+  display: inline-flex !important;
+  vertical-align: top !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  list-style: none !important;
+}
+html[data-cfx] .second-level-menu-list > li:not(.backLava) {
+  display: flex !important;
+  align-items: stretch !important;
+  float: none !important;
+  position: static !important;
+  top: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html[data-cfx] .second-level-menu-list > li > a {
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  height: 20px !important;
+  margin: 0 !important;
+  padding: 0 12px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  color: var(--cfx-muted) !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 6px 6px 0 0 !important;
+  box-shadow: none !important;
+}
+html[data-cfx] .second-level-menu-list > li > a:hover {
+  color: var(--cfx-fg) !important;
+  background: color-mix(in srgb, var(--cfx-fg) 8%, transparent) !important;
+}
+html[data-cfx] .second-level-menu-list > li:is(.current, .selectedLava) > a {
+  color: var(--cfx-accent) !important;
+  background: color-mix(in srgb, var(--cfx-accent) 8%, transparent) !important;
+  box-shadow: inset 0 -2px 0 var(--cfx-accent) !important;
+}
+
+html[data-cfx] [data-cfx-find] {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 4px !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 8px 10px !important;
+  text-align: left !important;
+}
+html[data-cfx] [data-cfx-find] br { display: none !important; }
+html[data-cfx] [data-cfx-find] :is(div, p, span, td, tr):empty { display: none !important; }
+html[data-cfx] [data-cfx-find] > * { margin: 0 !important; text-align: left !important; max-width: 100% !important; }
+html[data-cfx] [data-cfx-find] :is(table, tbody, tr, td, th) {
+  display: block !important; width: 100% !important; margin: 0 !important; padding: 0 !important; text-align: left !important;
+}
+html[data-cfx] [data-cfx-find] label { display: block !important; margin: 0 !important; line-height: 1.2 !important; }
+html[data-cfx] [data-cfx-find] input:is([type="text"], :not([type])) {
+  display: block !important; width: 100% !important; box-sizing: border-box !important; margin: 0 !important;
+  height: 28px !important; padding: 3px 8px !important;
+}
+html[data-cfx] [data-cfx-find] :is(input[type="submit"], input[type="button"], button) { align-self: flex-end; margin: 0 !important; }
+
+/* Tables & Problem Lists */
+html[data-cfx] .datatable,
+html[data-cfx] .datatable table,
+html[data-cfx] .datatable td,
+html[data-cfx] .datatable th,
+html[data-cfx] table.rtable td,
+html[data-cfx] table.rtable th {
+  background-color: var(--cfx-panel) !important;
+  background-image: none !important;
+  border-color: var(--cfx-border) !important;
+  color: var(--cfx-fg) !important;
+}
+html[data-cfx] .datatable tr:nth-child(even) td { background-color: var(--cfx-panel2) !important; }
+html[data-cfx] .datatable th,
+html[data-cfx] .datatable .dark td {
+  background-color: var(--cfx-panel2) !important;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+html[data-cfx] .datatable th { color: var(--cfx-muted) !important; }
+html[data-cfx] .datatable tr:hover td { background-color: color-mix(in srgb, var(--cfx-accent) 10%, var(--cfx-panel)) !important; }
+html[data-cfx] .datatable tr.highlighted-row td,
+html[data-cfx] .datatable tr.highlighted-row th { background-color: color-mix(in srgb, var(--cfx-accent) 18%, var(--cfx-panel)) !important; }
+
+html[data-cfx] .datatable tr.accepted-problem:nth-child(n) > td,
+html[data-cfx] .datatable td.accepted-problem:nth-child(n) { background-color: color-mix(in srgb, var(--cfx-ok) 12%, var(--cfx-panel)) !important; }
+html[data-cfx] .datatable tr.rejected-problem:nth-child(n) > td,
+html[data-cfx] .datatable td.rejected-problem:nth-child(n) { background-color: color-mix(in srgb, var(--cfx-bad) 10%, var(--cfx-panel)) !important; }
+html[data-cfx] .datatable tr.accepted-problem:hover > td { background-color: color-mix(in srgb, var(--cfx-ok) 20%, var(--cfx-panel)) !important; }
+html[data-cfx] .datatable tr.rejected-problem:hover > td { background-color: color-mix(in srgb, var(--cfx-bad) 18%, var(--cfx-panel)) !important; }
+html[data-cfx] .datatable tr.accepted-problem > td:first-child { box-shadow: inset 3px 0 0 var(--cfx-ok); }
+html[data-cfx] .datatable tr.rejected-problem > td:first-child { box-shadow: inset 3px 0 0 var(--cfx-bad); }
+
+html[data-cfx] .verdict-accepted, html[data-cfx] .verdict-successful { color: var(--cfx-ok) !important; font-weight: 600; }
+html[data-cfx] .verdict-rejected, html[data-cfx] .verdict-failed { color: var(--cfx-bad) !important; font-weight: 600; }
+
+html[data-cfx] { --cfx-row-h: 48px; }
+html[data-cfx] table.problems td {
+  box-sizing: border-box !important;   
+  height: var(--cfx-row-h) !important;
+  vertical-align: middle !important;
+}
+html[data-cfx] table.problems td:has(img) { white-space: nowrap !important; }
+
+/* Problem Statement & Sample Tests */
+html[data-cfx] .problem-statement .header .title,
+html[data-cfx] .problem-statement .property-title { color: var(--cfx-fg) !important; }
+html[data-cfx] .problem-statement .header .title { font-size: 1.35em !important; letter-spacing: -0.01em !important; }
+html[data-cfx] .problem-statement :is(.time-limit, .memory-limit, .input-file, .output-file) { color: var(--cfx-muted) !important; }
+html[data-cfx] .problem-statement :is(.time-limit, .memory-limit, .input-file, .output-file) .property-title { color: var(--cfx-fg) !important; }
+html[data-cfx] .problem-statement .section-title {
+  font-size: 1.15em !important;
+  font-weight: 700 !important;
+  color: var(--cfx-accent) !important;
+  padding-bottom: 4px !important;
+  margin-bottom: 6px !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--cfx-border) 50%, transparent) !important;
+}
+
+html[data-cfx] .problem-statement tt,
+html[data-cfx] .problem-statement code,
+html[data-cfx] .ttypography tt,
+html[data-cfx] .ttypography code {
+  background: color-mix(in srgb, var(--cfx-codebg) 80%, var(--cfx-border)) !important;
+  color: var(--cfx-fg) !important;
+  border: 1px solid color-mix(in srgb, var(--cfx-border) 60%, transparent) !important;
+  border-radius: 4px !important;
+  padding: 1px 5px !important;
+  font-size: 0.9em !important;
+}
+
+html[data-cfx] .sample-tests,
+html[data-cfx] .sample-test { border-color: var(--cfx-border) !important; }
+html[data-cfx] .sample-test .input,
+html[data-cfx] .sample-test .output {
+  border: 1px solid var(--cfx-border) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 1px 4px color-mix(in srgb, #000 12%, transparent) !important;
+  margin-bottom: 10px !important;
+}
+html[data-cfx] .sample-test .title,
+html[data-cfx] .problem-statement .sample-tests .section-title {
+  background: linear-gradient(180deg, var(--cfx-panel2), color-mix(in srgb, var(--cfx-panel2) 75%, var(--cfx-codebg))) !important;
+  color: var(--cfx-fg) !important;
+  border-color: var(--cfx-border) !important;
+  font-weight: 600 !important;
+  padding: 6px 12px !important;
+  letter-spacing: 0.02em !important;
+}
+html[data-cfx] .sample-test pre {
+  background: var(--cfx-codebg) !important;
+  color: var(--cfx-fg) !important;
+  border-color: var(--cfx-border) !important;
+  padding: 10px 14px !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+}
+html[data-cfx] [class*="test-example-line"] { color: var(--cfx-fg) !important; }
+html[data-cfx] .test-example-line-even { background-color: color-mix(in srgb, var(--cfx-fg) 5%, var(--cfx-codebg)) !important; }
+html[data-cfx] .test-example-line-odd { background-color: transparent !important; }
+html[data-cfx] .input-output-copier {
+  color: var(--cfx-muted) !important;
+  border-color: transparent !important;
+  background: transparent !important;
+  border-radius: 4px !important;
+  padding: 2px 6px !important;
+  font-size: 11px !important;
+  opacity: 0.7 !important;
+}
+html[data-cfx] .input-output-copier:hover {
+  color: var(--cfx-accent) !important;
+  border-color: var(--cfx-accent) !important;
+  opacity: 1 !important;
+  background: color-mix(in srgb, var(--cfx-accent) 8%, transparent) !important;
+}
+
+html[data-cfx] .tex-span,
+html[data-cfx] :is(.MathJax, .MathJax_Display, .MathJax_SVG, .MathJax_SVG_Display, .MathJax_CHTML, .MathJax_Preview, mjx-container),
+html[data-cfx] :is(.MathJax, .MathJax_Display, .MathJax_SVG, .MathJax_SVG_Display, .MathJax_CHTML, mjx-container) * { color: var(--cfx-fg) !important; }
+html[data-cfx] :is(.MathJax, .MathJax_SVG, mjx-container) svg * { fill: currentColor; }
+
+html[data-cfx] pre,
+html[data-cfx] .prettyprint {
+  background: var(--cfx-codebg) !important;
+  color: var(--cfx-fg) !important;
+  border: 1px solid var(--cfx-border) !important;
+  border-radius: 6px !important;
+  box-shadow: inset 0 1px 3px color-mix(in srgb, #000 10%, transparent) !important;
+  line-height: 1.5 !important;
+}
+html[data-cfx] kbd,
+html[data-cfx] samp {
+  background: var(--cfx-codebg) !important;
+  color: var(--cfx-fg) !important;
+  border-color: var(--cfx-border) !important;
+}
+html[data-cfx] .prettyprint .pln { color: var(--cfx-fg) !important; }
+html[data-cfx] .prettyprint .kwd { color: var(--cfx-kwd) !important; }
+html[data-cfx] .prettyprint .str { color: var(--cfx-str) !important; }
+html[data-cfx] .prettyprint .com { color: var(--cfx-com) !important; font-style: italic; }
+html[data-cfx] .prettyprint .typ { color: var(--cfx-typ) !important; }
+html[data-cfx] .prettyprint .lit { color: var(--cfx-lit) !important; }
+html[data-cfx] .prettyprint :is(.pun, .opn, .clo) { color: var(--cfx-fg) !important; }
+html[data-cfx] .prettyprint .tag { color: var(--cfx-tag) !important; }
+html[data-cfx] .prettyprint .atn { color: var(--cfx-atn) !important; }
+html[data-cfx] .prettyprint .atv { color: var(--cfx-atv) !important; }
+html[data-cfx] .prettyprint :is(.dec, .var, .fun) { color: var(--cfx-typ) !important; }
+html[data-cfx] ol.linenums li { color: var(--cfx-fg); background: transparent !important; }
+html[data-cfx] ol.linenums li::marker { color: var(--cfx-muted); }
+html[data-cfx] .ace_editor, html[data-cfx] .ace_gutter { background: var(--cfx-codebg) !important; color: var(--cfx-fg) !important; }
+html[data-cfx] { caret-color: var(--cfx-fg); }
+html[data-cfx] .ace_cursor,
+html[data-cfx] .ace_hidden-cursors .ace_cursor { color: var(--cfx-fg) !important; border-color: var(--cfx-fg) !important; }
+html[data-cfx] .CodeMirror-cursor,
+html[data-cfx] .cm-cursor { border-left-color: var(--cfx-fg) !important; }
+html[data-cfx] .ace_marker-layer .ace_selection,
+html[data-cfx] .CodeMirror-selected { background: color-mix(in srgb, var(--cfx-accent) 38%, transparent) !important; }
+html[data-cfx] .ace_marker-layer .ace_active-line,
+html[data-cfx] .ace_gutter-active-line { background: color-mix(in srgb, var(--cfx-fg) 6%, transparent) !important; }
+html[data-cfx] .ace_gutter { color: var(--cfx-muted) !important; }
+html[data-cfx] .ace_print-margin { background: var(--cfx-border) !important; }
+
+html[data-cfx] input:not([type]),
+html[data-cfx] input:is([type="text"], [type="password"], [type="search"], [type="number"], [type="email"]),
+html[data-cfx] textarea,
+html[data-cfx] select {
+  background-color: var(--cfx-codebg) !important;
+  color: var(--cfx-fg) !important;
+  border: 1px solid var(--cfx-border) !important;
+  border-radius: 6px;
+  padding: 6px 10px;
+  box-shadow: inset 0 1px 2px color-mix(in srgb, #000 8%, transparent);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease !important;
+}
+html[data-cfx] option { background-color: var(--cfx-codebg); color: var(--cfx-fg); }
+html[data-cfx] input:-webkit-autofill {
+  -webkit-text-fill-color: var(--cfx-fg) !important;
+  box-shadow: 0 0 0 1000px var(--cfx-codebg) inset !important;
+}
+html[data-cfx] input::file-selector-button {
+  background: var(--cfx-panel2); color: var(--cfx-fg);
+  border: 1px solid var(--cfx-border); border-radius: 6px; padding: 4px 10px; margin-right: 8px; cursor: pointer;
+}
+html[data-cfx] input:not([type]):focus,
+html[data-cfx] input:is([type="text"], [type="password"], [type="search"], [type="number"], [type="email"]):focus,
+html[data-cfx] textarea:focus,
+html[data-cfx] select:focus {
+  border-color: var(--cfx-accent) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--cfx-accent) 20%, transparent) !important;
+  outline: none;
+}
+html[data-cfx] input[type="submit"],
+html[data-cfx] input[type="button"],
+html[data-cfx] button:not(#cfx-fab):not(#cfx-panel button):not(#cfx-pt button):not(#cfx-mc button):not(#cfx-focus-exit) {
+  background: linear-gradient(180deg, var(--cfx-panel2), color-mix(in srgb, var(--cfx-panel2) 80%, var(--cfx-panel))) !important;
+  color: var(--cfx-fg) !important;
+  border: 1px solid var(--cfx-border) !important;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease !important;
+}
+html[data-cfx] input[type="submit"]:hover,
+html[data-cfx] button:not(#cfx-fab):not(#cfx-panel button):not(#cfx-pt button):not(#cfx-mc button):not(#cfx-focus-exit):hover {
+  border-color: var(--cfx-accent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--cfx-accent) 25%, transparent) !important;
+}
+html[data-cfx] input[type="submit"]:active,
+html[data-cfx] button:not(#cfx-fab):not(#cfx-panel button):not(#cfx-pt button):not(#cfx-mc button):not(#cfx-focus-exit):active { background: color-mix(in srgb, var(--cfx-accent) 15%, var(--cfx-panel2)) !important; }
+
+/* Forms & Submit Buttons */
+html[data-cfx] input#sidebarSubmitButton.submit,
+html[data-cfx] .table-form input.submit {
+  height: auto !important;
+  padding: 3px 14px 4px !important;
+  line-height: normal !important;
+}
+
+html[data-cfx] #tooltip,
+html[data-cfx] .ac_results,
+html[data-cfx] .tippy-box,
+html[data-cfx] .tooltip,
+html[data-cfx] .tip,
+html[data-cfx] div[class*="popup"],
+html[data-cfx] .dropdown-menu,
+html[data-cfx] :is(.ui-dialog, .ui-widget-content, .ui-datepicker, .ui-menu, .ui-autocomplete) {
+  background: var(--cfx-panel2) !important;
+  background-image: none !important;
+  color: var(--cfx-fg) !important;
+  border: 1px solid var(--cfx-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px color-mix(in srgb, #000 30%, transparent) !important;
+}
+html[data-cfx] #tooltip { opacity: 0.97 !important; padding: 6px 10px !important; line-height: 1.45 !important; }
+html[data-cfx] #tooltip :where(span, div, p, b, i, td) { color: var(--cfx-fg) !important; }
+html[data-cfx] .ui-widget-header { background: var(--cfx-panel2) !important; color: var(--cfx-fg) !important; border-color: var(--cfx-border) !important; }
+html[data-cfx] .ac_results li,
+html[data-cfx] .dropdown-menu li { color: var(--cfx-fg) !important; background: transparent !important; }
+html[data-cfx] .ac_results li:hover,
+html[data-cfx] .dropdown-menu li:hover,
+html[data-cfx] .ac_results .ac_over { background: color-mix(in srgb, var(--cfx-accent) 15%, var(--cfx-panel)) !important; }
+
+html[data-cfx] :is(.tickLabel, .flot-tick-label, .legendLabel) { color: var(--cfx-muted) !important; }
+
+html[data-cfx] .comment, html[data-cfx] .comment-table { border-color: var(--cfx-border) !important; }
+html[data-cfx] .info { background: transparent !important; }
+html[data-cfx] :is(.avatar-img, .avatar img) { border-radius: 50% !important; border: 2px solid var(--cfx-border) !important; }
+html[data-cfx] .spoiler-content {
+  background: color-mix(in srgb, var(--cfx-panel2) 50%, var(--cfx-bg)) !important;
+  border: 1px solid var(--cfx-border) !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+}
+html[data-cfx] .userbox { background: var(--cfx-panel) !important; border-color: var(--cfx-border) !important; }
+html[data-cfx] :is(.note, .problem-statement .note) {
+  background: color-mix(in srgb, var(--cfx-accent) 5%, var(--cfx-bg)) !important;
+  border-left: 3px solid var(--cfx-accent) !important;
+  border-radius: 0 6px 6px 0 !important;
+  padding: 8px 14px !important;
+}
+html[data-cfx] .diff-added { background: color-mix(in srgb, var(--cfx-ok) 15%, var(--cfx-codebg)) !important; }
+html[data-cfx] .diff-removed { background: color-mix(in srgb, var(--cfx-bad) 15%, var(--cfx-codebg)) !important; }
+html[data-cfx] .countdown { color: var(--cfx-accent) !important; font-weight: 600 !important; }
+
+/* Announcements & Alerts */
+html[data-cfx] :is(.alert, div.alert, [class*="alert-"]),
+html[data-cfx] :is(.alert, div.alert, [class*="alert-"]) * {
+  text-shadow: none !important;
+}
+html[data-cfx] :is(.alert, div.alert) {
+  border-radius: 6px !important;
+  color: var(--cfx-fg) !important;
+  background-color: var(--cfx-panel2) !important;
+  border: 1px solid var(--cfx-border) !important;
+}
+html[data-cfx] div.alert-success {
+  background-color: color-mix(in srgb, var(--cfx-ok) 12%, var(--cfx-panel)) !important;
+  border: 1px solid color-mix(in srgb, var(--cfx-ok) 35%, var(--cfx-border)) !important;
+  color: var(--cfx-ok) !important;
+}
+html[data-cfx] div.alert-info {
+  background-color: color-mix(in srgb, var(--cfx-accent) 12%, var(--cfx-panel)) !important;
+  border: 1px solid color-mix(in srgb, var(--cfx-accent) 35%, var(--cfx-border)) !important;
+  color: var(--cfx-fg) !important;
+}
+html[data-cfx] div.alert-warning {
+  background-color: color-mix(in srgb, #f59e0b 14%, var(--cfx-panel)) !important;
+  border: 1px solid color-mix(in srgb, #f59e0b 35%, var(--cfx-border)) !important;
+  color: #fbbf24 !important;
+}
+html[data-cfx] div.alert-error {
+  background-color: color-mix(in srgb, var(--cfx-bad) 14%, var(--cfx-panel)) !important;
+  border: 1px solid color-mix(in srgb, var(--cfx-bad) 35%, var(--cfx-border)) !important;
+  color: var(--cfx-bad) !important;
+}
+html[data-cfx] :is(.alert, div.alert) a {
+  color: inherit !important;
+  text-decoration: underline !important;
+  font-weight: 600 !important;
+}
+html[data-cfx] .infobar-close {
+  color: var(--cfx-muted) !important;
+  opacity: 0.8 !important;
+}
+html[data-cfx] .infobar-close:hover {
+  color: var(--cfx-fg) !important;
+  opacity: 1 !important;
+}
+
+html[data-cfx] .pagination a {
+  background: var(--cfx-panel2) !important;
+  border: 1px solid var(--cfx-border) !important;
+  border-radius: 6px !important;
+  padding: 4px 10px !important;
+  min-width: 30px !important;
+  text-align: center !important;
+}
+html[data-cfx] .pagination a:hover {
+  background: color-mix(in srgb, var(--cfx-accent) 12%, var(--cfx-panel2)) !important;
+  border-color: var(--cfx-accent) !important;
+}
+html[data-cfx] .pagination :is(.active a, .page-index.active a, .page-index.current) {
+  background: var(--cfx-accent) !important;
+  color: var(--cfx-bg) !important;
+  border-color: var(--cfx-accent) !important;
+  font-weight: 600 !important;
+}
+
+/* Standings Custom Links Pagination */
+html[data-cfx] .custom-links-pagination {
+  line-height: 2 !important;
+}
+html[data-cfx] .custom-links-pagination :is(a, .page-index, nobr) {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  box-shadow: none !important;
+}
+html[data-cfx] .custom-links-pagination a {
+  color: var(--cfx-muted) !important;
+  text-decoration: none !important;
+  margin: 0 0.5em !important;
+}
+html[data-cfx] .custom-links-pagination a:hover {
+  color: var(--cfx-accent) !important;
+  text-decoration: underline !important;
+}
+html[data-cfx] .custom-links-pagination .active {
+  color: var(--cfx-fg) !important;
+  font-weight: 700 !important;
+  margin: 0 0.5em !important;
+}
+html[data-cfx] .tag-box {
+  display: inline-block !important;
+  background: color-mix(in srgb, var(--cfx-panel2) 70%, var(--cfx-bg)) !important;
+  color: var(--cfx-muted) !important;
+  border: 1px solid color-mix(in srgb, var(--cfx-border) 60%, transparent) !important;
+  border-radius: 4px !important;
+  padding: 3px 8px !important;
+  font-size: 11px !important;
+  line-height: 1.3 !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}
+html[data-cfx] .tag-box:hover {
+  background: color-mix(in srgb, var(--cfx-accent) 10%, var(--cfx-panel2)) !important;
+  border-color: var(--cfx-accent) !important;
+  color: var(--cfx-fg) !important;
+}
+html[data-cfx] .tag-box { box-shadow: none !important; }
+html[data-cfx] .tag-box * {
+  border: 0 !important; background: transparent !important; box-shadow: none !important;
+  margin: 0 !important; padding: 0 !important; border-radius: 0 !important;
+}
+html[data-cfx] :is(.roundbox, div, span):has(> .tag-box:only-child):not(.sidebox):not(.tag-box) {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 3px 2px !important;
+  float: left !important;
+  display: inline-block !important;
+  height: auto !important;
+}
+
+html[data-cfx] .problem-statement img,
+html[data-cfx] img.tex-formula { filter: invert(1) hue-rotate(180deg); }
+html[data-cfx] :is(img[src*="no-avatar" i], img[src*="no-title" i], img[src*="noavatar" i], img[src*="no_avatar" i]) {
+  filter: invert(0.92) hue-rotate(180deg);
+  border-radius: 6px;
+}
+html[data-cfx] .star-img { filter: brightness(1.2) !important; }
+
+/* Gym Voting Stars & Catalog Icons */
+html[data-cfx] ul[id*="vote-list"] {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"><polygon points="12.5,3.0 15.0,9.1 21.5,9.6 16.5,13.8 18.1,20.2 12.5,16.7 6.9,20.2 8.5,13.8 3.5,9.6 10.0,9.1" fill="none" stroke="%23888888" stroke-width="1.5"/></svg>') top left repeat-x !important;
+  background-color: transparent !important;
+}
+html[data-cfx] li[id*="vote-current"] {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"><polygon points="12.5,3.0 15.0,9.1 21.5,9.6 16.5,13.8 18.1,20.2 12.5,16.7 6.9,20.2 8.5,13.8 3.5,9.6 10.0,9.1" fill="%23f5c518" stroke="%23d4a017" stroke-width="1"/></svg>') left center repeat-x !important;
+  background-color: transparent !important;
+}
+html[data-cfx] ul[id*="vote-list"] li a.vote-item:hover {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"><polygon points="12.5,3.0 15.0,9.1 21.5,9.6 16.5,13.8 18.1,20.2 12.5,16.7 6.9,20.2 8.5,13.8 3.5,9.6 10.0,9.1" fill="%23ffa726" stroke="%23f57c00" stroke-width="1"/></svg>') left center repeat-x !important;
+  background-color: transparent !important;
+}
+
+html[data-cfx] ._catalogBlogEntry ._name i[class*="icon-"],
+html[data-cfx] ._catalogBlogEntry i.icon-file-text-alt,
+html[data-cfx] i.icon-file-text-alt {
+  color: #ffffff !important;
+}
+
+html[data-cfx] svg text:not([style*="fill"]) { fill: var(--cfx-muted); }
+html[data-cfx] :is(.highcharts-background) { fill: var(--cfx-panel) !important; }
+html[data-cfx] :is(.highcharts-axis-labels text, .highcharts-legend-item text, .highcharts-title, .highcharts-subtitle) { fill: var(--cfx-fg) !important; }
+html[data-cfx] .highcharts-grid-line { stroke: var(--cfx-border) !important; }
+html[data-cfx] .highcharts-tooltip path { fill: var(--cfx-panel2) !important; stroke: var(--cfx-border) !important; }
+html[data-cfx] :is(.highcharts-tooltip text, .highcharts-label text) { fill: var(--cfx-fg) !important; }
+
+html[data-cfx] [data-cfx-fix] { color: var(--cfx-fixed) !important; }
+html[data-cfx] [data-cfx-surf] { background-color: var(--cfx-panel) !important; background-image: none !important; }
+html[data-cfx] [data-cfx-bd~="t"] { border-top-color: var(--cfx-border) !important; }
+html[data-cfx] [data-cfx-bd~="r"] { border-right-color: var(--cfx-border) !important; }
+html[data-cfx] [data-cfx-bd~="b"] { border-bottom-color: var(--cfx-border) !important; }
+html[data-cfx] [data-cfx-bd~="l"] { border-left-color: var(--cfx-border) !important; }
+html[data-cfx] [data-cfx-empty] { fill: var(--cfx-panel2) !important; }
+html[data-cfx] [data-cfx-empty="bg"] { fill: var(--cfx-panel) !important; }
+html[data-cfx] [data-cfx-stk] { stroke: var(--cfx-panel) !important; }
+
+html[data-cfx] .legendary-user-first-letter,
+html[data-cfx] .user-legendary::first-letter { color: var(--cfx-fg) !important; }
+
+html[data-cfx-hide-solved] table.problems :is(a[href*="/status/"], a[title*="solved" i]) { display: none !important; }
+
+/* Focus Mode */
+html[data-cfx-focus][data-cfx-has-problem] [data-cfx-keep="path"] > :not([data-cfx-keep]):not(#cfx-pt):not(#cfx-mc):not(#cfx-focus-exit):not([class*="tooltip" i]):not([id*="tooltip" i]):not([role="tooltip"]):not(.ui-widget-overlay):not([id*="MathJax" i]):not([id^="MJX" i]):not([class*="MathJax" i]):not([class*="MJX" i]):not(mjx-container):not(mjx-assistive-mml) {
+  display: none !important;
+}
+html[data-cfx-focus][data-cfx-has-problem] [data-cfx-keep="path"] {
+  width: auto !important; min-width: 0 !important; max-width: none !important;
+  float: none !important;
+  margin-left: 0 !important; margin-right: 0 !important;
+  padding-left: 0 !important; padding-right: 0 !important;
+}
+html[data-cfx-focus][data-cfx-has-problem] [data-cfx-keep="stmt"] {
+  box-sizing: border-box;
+  max-width: 72rem;               
+  margin: 28px auto 96px !important;
+  padding: 0 28px !important;
+  font-size: 1.08em;
+  line-height: 1.65;
+}
+#cfx-focus-exit {
+  position: fixed; top: 12px; right: 12px; z-index: 2147483000;
+  padding: 6px 12px; cursor: pointer; font: 12px/1.3 system-ui, sans-serif; border-radius: 16px; opacity: 0.55;
+  background: var(--cfx-panel2, #eee); color: var(--cfx-fg, #222);
+  border: 1px solid var(--cfx-border, #bbb);
+}
+#cfx-focus-exit:hover, #cfx-focus-exit:focus-visible { opacity: 1; }
+
+html[data-cfx-code] pre,
+html[data-cfx-code] code,
+html[data-cfx-code] .prettyprint,
+html[data-cfx-code] .sample-test pre,
+html[data-cfx-code] textarea#sourceCodeTextarea,
+html[data-cfx-code] .ace_editor {
+  font-size: var(--cfx-code-size) !important;
+  line-height: 1.5 !important;
+}
+
+html[data-cfx-hide-tags] .tag-box:not([title="Difficulty"]),
+html[data-cfx-hide-tags] table.problems a[href*="tags="] { display: none !important; }
+html[data-cfx-hide-rating] .tag-box[title="Difficulty"],
+html[data-cfx-hide-rating] .ProblemRating { display: none !important; }
+html[data-cfx-hide-tags][data-cfx-hide-rating] .sidebox:has(.tag-box) { display: none !important; }
+
+/* Floating Quick Switcher */
+#cfx-widget { position: fixed; right: 16px; bottom: 16px; z-index: 2147483000; font: 13px/1.3 system-ui, sans-serif; }
+#cfx-fab {
+  width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 18px; padding: 0;
+  background: var(--cfx-panel2, #eee) !important; color: var(--cfx-fg, #222) !important;
+  border: 1px solid var(--cfx-border, #bbb) !important;
+  box-shadow: 0 2px 12px color-mix(in srgb, #000 35%, transparent),
+              0 0 0 1px color-mix(in srgb, var(--cfx-fg, #222) 8%, transparent) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+#cfx-fab:hover {
+  transform: scale(1.08) !important;
+  box-shadow: 0 4px 16px color-mix(in srgb, #000 45%, transparent),
+              0 0 0 1px color-mix(in srgb, var(--cfx-accent, #36c) 40%, transparent) !important;
+}
+#cfx-fab:focus-visible, #cfx-panel button:focus-visible { outline: 2px solid var(--cfx-accent, #36c); outline-offset: 2px; }
+#cfx-panel {
+  display: none; position: absolute; right: 0; bottom: 50px; min-width: 180px; padding: 8px;
+  max-height: 70vh; overflow-y: auto;
+  background: var(--cfx-panel, #fff); border: 1px solid var(--cfx-border, #bbb);
+  border-radius: 12px; box-shadow: 0 8px 32px color-mix(in srgb, #000 40%, transparent);
+  backdrop-filter: blur(8px);
+}
+#cfx-widget.open #cfx-panel { display: block; animation: cfx-slide-up 0.2s ease; }
+@keyframes cfx-slide-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+#cfx-panel button {
+  display: block; width: 100%; text-align: left; padding: 7px 12px; margin: 2px 0; cursor: pointer;
+  background: transparent !important; color: var(--cfx-fg, #222) !important;
+  border: 1px solid transparent !important; border-radius: 6px; font-size: 13px;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+#cfx-panel button:hover { background: var(--cfx-panel2, #eee) !important; }
+#cfx-panel button.active {
+  border-color: var(--cfx-accent, #36c) !important;
+  color: var(--cfx-accent, #36c) !important;
+  background: color-mix(in srgb, var(--cfx-accent, #36c) 8%, transparent) !important;
+}
+#cfx-panel #cfx-focus-btn { margin-top: 6px; border-top: 1px solid var(--cfx-border, #ccc) !important; border-radius: 0 0 6px 6px; }
+#cfx-panel .hint { color: var(--cfx-muted, #777); font-size: 11px; padding: 4px 10px 2px; }
+
+/* Problem Timer & Notes */
+#cfx-pt { position: fixed; left: 16px; bottom: 16px; z-index: 2147483000; font: 13px/1.3 system-ui, sans-serif; }
+#cfx-pt-chip {
+  display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px; cursor: pointer;
+  font: inherit; font-variant-numeric: tabular-nums; border-radius: 18px;
+  background: var(--cfx-panel2, #eee); color: var(--cfx-fg, #222);
+  border: 1px solid var(--cfx-border, #bbb);
+  box-shadow: 0 2px 12px color-mix(in srgb, #000 30%, transparent);
+}
+#cfx-pt-chip:hover { border-color: var(--cfx-accent, #36c); }
+#cfx-pt-chip:focus-visible, #cfx-pt button:focus-visible, #cfx-pt textarea:focus-visible { outline: 2px solid var(--cfx-accent, #36c); outline-offset: 2px; }
+#cfx-pt .cfx-pt-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cfx-accent, #36c); }
+#cfx-pt.paused .cfx-pt-dot { background: var(--cfx-muted, #888); }
+#cfx-pt.paused .cfx-pt-time { opacity: 0.6; }
+#cfx-pt-panel {
+  display: none; position: absolute; left: 0; bottom: 46px; width: 300px; padding: 10px; box-sizing: border-box;
+  background: var(--cfx-panel, #fff); color: var(--cfx-fg, #222);
+  border: 1px solid var(--cfx-border, #bbb); border-radius: 12px;
+  box-shadow: 0 8px 32px color-mix(in srgb, #000 40%, transparent);
+}
+#cfx-pt.open #cfx-pt-panel { display: block; }
+#cfx-pt .cfx-pt-row { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+#cfx-pt .cfx-pt-title { font-weight: 600; color: var(--cfx-accent, #36c); }
+#cfx-pt .cfx-pt-spacer { flex: 1; }
+#cfx-pt .cfx-pt-row button {
+  padding: 3px 10px; cursor: pointer; font: inherit; border-radius: 6px;
+  background: transparent; color: var(--cfx-fg, #222); border: 1px solid var(--cfx-border, #bbb);
+}
+#cfx-pt .cfx-pt-row button:hover { border-color: var(--cfx-accent, #36c); }
+#cfx-pt textarea {
+  display: block; width: 100%; height: 140px; box-sizing: border-box; resize: vertical; padding: 8px; font: 13px/1.45 system-ui, sans-serif;
+  background: var(--cfx-codebg, #fff); color: var(--cfx-fg, #222);
+  border: 1px solid var(--cfx-border, #bbb); border-radius: 6px;
+}
+#cfx-pt .cfx-pt-status { min-height: 1.3em; margin-top: 4px; font-size: 11px; color: var(--cfx-muted, #777); }
+
+html[data-cfx-mc-live] .tag-box,
+html[data-cfx-mc-live] table.problems a[href*="tags="],
+html[data-cfx-mc-live] .ProblemRating { display: none !important; }
+html[data-cfx-mc-live] .sidebox:has(.tag-box) { display: none !important; }
+
+/* Mashup Contest HUD */
+#cfx-mc { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 2147483000; font: 13px/1.3 system-ui, sans-serif; }
+#cfx-mc-chip {
+  display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px; cursor: pointer;
+  font: inherit; font-variant-numeric: tabular-nums; border-radius: 18px;
+  background: var(--cfx-panel2, #eee); color: var(--cfx-fg, #222);
+  border: 1px solid var(--cfx-border, #bbb);
+  box-shadow: 0 2px 12px color-mix(in srgb, #000 30%, transparent);
+}
+#cfx-mc-chip:hover { border-color: var(--cfx-accent, #36c); }
+#cfx-mc-chip:focus-visible, #cfx-mc .cfx-mc-btn:focus-visible { outline: 2px solid var(--cfx-accent, #36c); outline-offset: 2px; }
+#cfx-mc .cfx-mc-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cfx-accent, #36c); }
+#cfx-mc.over .cfx-mc-dot { background: var(--cfx-muted, #888); }
+#cfx-mc.low .cfx-mc-time { color: var(--cfx-bad, #c33); font-weight: 600; }
+#cfx-mc .cfx-mc-score { color: var(--cfx-muted, #777); }
+#cfx-mc-panel {
+  display: none; position: absolute; left: 50%; bottom: 46px; transform: translateX(-50%);
+  width: 340px; max-width: 92vw; padding: 10px; box-sizing: border-box;
+  background: var(--cfx-panel, #fff); color: var(--cfx-fg, #222);
+  border: 1px solid var(--cfx-border, #bbb); border-radius: 12px;
+  box-shadow: 0 8px 32px color-mix(in srgb, #000 40%, transparent);
+}
+#cfx-mc.open #cfx-mc-panel { display: block; }
+#cfx-mc .cfx-mc-head { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+#cfx-mc .cfx-mc-title { font-weight: 600; color: var(--cfx-accent, #36c); }
+#cfx-mc .cfx-mc-spacer { flex: 1; }
+#cfx-mc .cfx-mc-sum { color: var(--cfx-muted, #777); font-size: 12px; }
+#cfx-mc .cfx-mc-prob { display: flex; align-items: center; gap: 8px; padding: 5px 0; border-top: 1px solid var(--cfx-border, #ddd); }
+#cfx-mc .cfx-mc-letter { width: 1.2em; font-weight: 700; color: var(--cfx-accent, #36c); }
+#cfx-mc .cfx-mc-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#cfx-mc .cfx-mc-stat { color: var(--cfx-muted, #777); font-size: 12px; white-space: nowrap; }
+#cfx-mc .cfx-mc-stat.ok { color: var(--cfx-ok, #2a7); }
+#cfx-mc .cfx-mc-note { margin-top: 8px; font-size: 11px; color: var(--cfx-muted, #777); }
+#cfx-mc .cfx-mc-actions { display: flex; gap: 6px; margin-top: 8px; }
+#cfx-mc .cfx-mc-btn {
+  padding: 3px 10px; cursor: pointer; font: inherit; border-radius: 6px;
+  background: transparent; color: var(--cfx-fg, #222); border: 1px solid var(--cfx-border, #bbb);
+}
+#cfx-mc .cfx-mc-btn:hover { border-color: var(--cfx-accent, #36c); }
+
+html[data-cfx-lockin] *,
+html[data-cfx-lockin] *::before,
+html[data-cfx-lockin] *::after { transition: none !important; animation: none !important; }
+
+/* Lock-In Theme Overrides */
+html[data-cfx-lockin] :is(.roundbox, .menu-box, .sample-test .input, .sample-test .output, pre, .prettyprint,
+    #tooltip, #cfx-panel, #cfx-fab, button, input, textarea, select) { box-shadow: none !important; }
+
+html[data-cfx-lockin] .roundbox .caption,
+html[data-cfx-lockin] .roundbox .titled,
+html[data-cfx-lockin] .roundbox .roundbox-title {
+  background: transparent !important;
+  border-bottom: 1px solid var(--cfx-border) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em !important;
+  font-size: 12px !important;
+}
+html[data-cfx-lockin] .problem-statement .section-title {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.95em !important;
+}
+html[data-cfx-lockin] .problem-statement .property-title { color: var(--cfx-muted) !important; }
+html[data-cfx-lockin] .datatable th { text-transform: uppercase; font-size: 0.85em; letter-spacing: 0.05em; }
+html[data-cfx-lockin] :is(input, textarea, select, button):focus-visible { outline: 1px solid var(--cfx-accent); outline-offset: 1px; }
+html[data-cfx-lockin] button:not(#cfx-fab):not(#cfx-panel button):not(#cfx-pt button):not(#cfx-mc button):not(#cfx-focus-exit):hover,
+html[data-cfx-lockin] input[type="submit"]:hover { background: var(--cfx-accent) !important; color: #000 !important; }
+
+} 

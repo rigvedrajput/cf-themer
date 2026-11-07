@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CF Themer · Mashup contest</title>
+<link rel="stylesheet" href="mashup.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Mashup contest</h1>
+    <p class="sub">Choose tags, size and difficulty. CF Themer picks problems from the Codeforces problemset, then runs the timer and checks your submissions.</p>
+  </header>
+
+  <section id="consent" class="card consent" hidden>
+    <h2>Before you use the mashup builder</h2>
+    <p>The builder works with some personal data. This is exactly what, and where it goes:</p>
+    <ul class="plain">
+      <li><b>Your Codeforces handle</b>: read from the Codeforces page header when you are logged in, or typed by you.</li>
+      <li><b>Your submissions</b>: fetched from the public Codeforces API to leave out problems you have solved and to score your contests.</li>
+      <li><b>Your mashup activity</b>: the contests you generate, their results and share codes, and your form choices.</li>
+    </ul>
+    <p>All of it is stored only in this browser. The only network requests go to <code>codeforces.com/api</code>. Nothing is sent to the developer or to anyone else, there are no analytics or ads, and you can delete everything from this page at any time. <a id="privacyLink" href="#" target="_blank" rel="noopener" hidden>Privacy policy</a></p>
+    <div class="actions">
+      <button type="button" id="agree" class="primary">I agree and continue</button>
+      <button type="button" id="decline">No thanks</button>
+    </div>
+    <p id="declined" class="hint" hidden>Okay, the mashup builder stays off. Themes, focus mode and the problem timer do not need this, and you can close this tab.</p>
+  </section>
+
+  <div id="app" hidden>
+  <div class="layout">
+
+    <!-- Left: everything that configures the contest. The Generate block is pinned to the bottom of the
+         sidebar, so it is always on screen even when the settings above it have to scroll on a short window. -->
+    <aside class="side" aria-label="Contest settings">
+
+      <div class="side-body">
+        <section class="card s-card">
+          <label class="field">
+            <span class="lbl">Codeforces handle</span>
+            <input id="handle" type="text" autocomplete="off" spellcheck="false" placeholder="needed to exclude solved problems and to score">
+          </label>
+
+          <div class="checks">
+            <label class="check"><input id="exSolved" type="checkbox" checked> Exclude problems I have solved</label>
+            <label class="check" title="Also exclude problems I have tried but not solved"><input id="exTried" type="checkbox"> Also exclude tried-but-unsolved</label>
+            <label class="check" title="Avoid problems from my previous mashups"><input id="avoidRepeats" type="checkbox" checked> Avoid my previous mashups</label>
+            <label class="check"><input id="unique" type="checkbox" checked> At most one problem per contest</label>
+          </div>
+
+          <hr class="sep">
+
+          <div class="grid2">
+            <label class="field"><span class="lbl">Problems</span><input id="count" type="number" min="1" max="10" value="5"></label>
+            <label class="field"><span class="lbl">Length (min)</span><input id="duration" type="number" min="10" max="600" step="5" placeholder="auto"></label>
+            <label class="field"><span class="lbl">Rating from</span><input id="lo" type="number" min="800" max="3500" step="100" value="1000"></label>
+            <label class="field"><span class="lbl">Rating to</span><input id="hi" type="number" min="800" max="3500" step="100" value="1600"></label>
+          </div>
+        </section>
+      </div>
+
+      <div class="gen">
+        <div id="pool" class="hint"></div>
+        <button type="button" id="generate" class="primary" disabled>Generate contest</button>
+        <p id="status" class="status" role="status"></p>
+      </div>
+
+      <details class="card s-join" id="joinCard">
+        <summary>Have a share code?</summary>
+        <div class="row">
+          <input id="joinCode" type="text" autocomplete="off" spellcheck="false" placeholder="Paste code or invite" aria-label="Share code or invite message">
+          <button type="button" id="joinBtn" disabled>Load</button>
+        </div>
+      </details>
+
+    </aside>
+
+    <!-- Right: tag picker, then the result. Tags keep one fixed position, so they never jump
+         when a contest appears; the page scrolls the result into view after Generate. -->
+    <div class="main">
+
+      <details id="tagsCard" class="card" open>
+        <summary>
+          What to practice <span id="tagsHint" class="hint">none selected = any topic</span>
+          <span class="spacer"></span>
+          <span class="tag-modes">
+            <label class="mode" title="A problem needs at least one of the selected tags"><input type="radio" name="tagMode" value="any" checked> match any</label>
+            <label class="mode" title="A problem needs every selected tag"><input type="radio" name="tagMode" value="all"> match all</label>
+            <button type="button" id="clearTags" class="link">clear</button>
+          </span>
+        </summary>
+        <div id="tags" class="chips"><span class="hint">Loading problemset…</span></div>
+      </details>
+
+      <section id="preview" class="card" hidden>
+        <h2 id="previewTitle">Your contest</h2>
+        <table>
+          <thead><tr><th></th><th>Problem</th><th>Rating</th><th>Tags</th><th>~min</th><th></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <div id="summary" class="hint"></div>
+        <div class="field share">
+          <span class="lbl">Share this contest <span class="hint">(a friend pastes the code under "Have a share code?")</span></span>
+          <div class="row">
+            <input id="shareCode" type="text" readonly aria-label="Share code">
+            <button type="button" id="copyCode">Copy code</button>
+            <button type="button" id="copyInvite">Copy invite</button>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="button" id="start" class="primary">Start contest</button>
+          <button type="button" id="again">Generate again</button>
+        </div>
+        <p class="hint">Starting opens problem A and starts the clock. A countdown with your problem list follows you on every Codeforces page; tags and difficulty are hidden until the contest ends.</p>
+      </section>
+
+      <details id="past" class="card" hidden>
+        <summary>Past mashups</summary>
+        <ul id="pastList"></ul>
+      </details>
+
+      <details id="dataCard" class="card">
+        <summary>Your data</summary>
+        <p class="hint">Everything the builder saves (handle, solved list, history, contests, share codes) and your per-problem timers and notes live only in this browser.</p>
+        <div class="actions">
+          <button type="button" id="clearData">Delete my saved data</button>
+          <button type="button" id="withdraw">Delete it and withdraw consent</button>
+        </div>
+        <p class="hint"><a id="privacyLink2" href="#" target="_blank" rel="noopener" hidden>Privacy policy</a></p>
+      </details>
+
+    </div>
+  </div>
+  </div>
+</main>
+<script src="themes.js"></script>
+<script src="mashup-core.js"></script>
+<script src="mashup.js"></script>
+</body>
+</html>
