@@ -26,7 +26,7 @@ Placeholders to fill: `Rigved Rajput`, `cfthemer@gmail.com`, `https://rigvedrajp
 
 ## 2. Store listing tab
 
-**Name:** CF Themer – Codeforces Themes (from the manifest)
+**Name:** CF Themer – Themes & Custom Contests for Codeforces (from the manifest)
 **Summary (from manifest, 102 chars):** Customize Codeforces with sleek dark themes, focus mode, problem timers, and custom mashup contests!
 **Category:** my suggestion is Productivity (Education is an alternative). The dashboard's category list is the authority.
 **Language:** English

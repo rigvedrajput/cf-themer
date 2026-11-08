@@ -1,6 +1,6 @@
-# CF Themer
+# CF Themer – Themes & Custom Contests for Codeforces
 
-Dark themes for [Codeforces](https://codeforces.com), with a few quality-of-life extras.
+Sleek dark themes, focus mode, and custom mashup contests for [Codeforces](https://codeforces.com).
 
 *Unofficial: CF Themer is not affiliated with, endorsed by, or produced by Codeforces.*
 
