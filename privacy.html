@@ -19,9 +19,9 @@
 <body>
 <main>
 <h1>CF Themer – Privacy Policy</h1>
-<p><strong>Effective date:</strong> November 3, 2026 · <strong>Applies to:</strong> CF Themer 1.0.0 and later
+<p><strong>Effective date:</strong> November 12, 2026 · <strong>Applies to:</strong> CF Themer 1.0.0 and later, for Chrome and Firefox<br>
 <strong>Developer / contact:</strong> Rigved Rajput · cfthemer@gmail.com</p>
-<p>CF Themer is an unofficial Chrome extension for codeforces.com. It is not affiliated with, endorsed by, or produced by Codeforces.</p>
+<p>CF Themer is an unofficial browser extension for codeforces.com, available for Chrome and Firefox. It is not affiliated with, endorsed by, or produced by Codeforces.</p>
 <h2>Short version</h2>
 <ul>
 <li>CF Themer has no servers and no accounts. <strong>The developer receives no data from you.</strong></li>
@@ -44,37 +44,37 @@
 <tr>
 <td>Settings: theme, sample size, option toggles</td>
 <td>To apply your choices on Codeforces pages</td>
-<td><code>chrome.storage.sync</code> (Chrome may sync it across your own browsers if you use Chrome Sync, under Google's terms), plus a small copy in the local storage of codeforces.com pages so a page does not flash unthemed (that copy sits in the page's own storage, so Codeforces' scripts could technically read it; it holds only theme and option settings)</td>
+<td>The extension's sync storage (<code>storage.sync</code>). If you use Chrome Sync (Chrome) or Firefox Sync (Firefox), your browser may sync it across your own devices, under Google's or Mozilla's terms. Also a small copy in the local storage of codeforces.com pages so a page does not flash unthemed (that copy sits in the page's own storage, so Codeforces' scripts could technically read it; it holds only theme and option settings)</td>
 <td>Always</td>
 </tr>
 <tr>
 <td>Per-problem timer and notes</td>
 <td>Timer and notepad on problem pages</td>
-<td><code>chrome.storage.local</code> on this device only (not synced)</td>
+<td>The extension's local storage (<code>storage.local</code>) on this device only (not synced)</td>
 <td>When "Problem timer &amp; notes" is on</td>
 </tr>
 <tr>
 <td>Your Codeforces handle</td>
 <td>To leave out problems you solved and to score your mashup contests</td>
-<td><code>chrome.storage.local</code></td>
+<td><code>storage.local</code></td>
 <td>Only after you agree in the mashup builder. The handle is read from the Codeforces page header while you are logged in, or typed by you</td>
 </tr>
 <tr>
 <td>Your submissions</td>
 <td>Read through the Codeforces API to know which problems you solved or tried, and to score a running contest. Only the resulting lists of solved/tried problem identifiers and the contest results are kept, not the submissions themselves</td>
-<td><code>chrome.storage.local</code></td>
+<td><code>storage.local</code></td>
 <td>Only after you agree</td>
 </tr>
 <tr>
 <td>Mashup activity</td>
 <td>Your form choices, the problems you were given (to avoid repeats), running and finished contests, share codes</td>
-<td><code>chrome.storage.local</code></td>
+<td><code>storage.local</code></td>
 <td>Only after you agree</td>
 </tr>
 <tr>
 <td>Problemset copy</td>
 <td>A copy of the public problem list, refreshed every 24 hours</td>
-<td><code>chrome.storage.local</code></td>
+<td><code>storage.local</code></td>
 <td>Only after you agree</td>
 </tr>
 </tbody>
@@ -91,14 +91,14 @@
 <li>No person, including the developer, can read your data, because it never leaves your browser.</li>
 </ul>
 <h2>Limited Use</h2>
-<p>The use of information received by CF Themer will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements. Data is used only to provide the extension's single purpose: improving Codeforces for practice with themes and practice tools.</p>
+<p>The use of information received by CF Themer will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements, for the Chrome version, and to the Mozilla Add-on Policies for the Firefox version. In both browsers, data is used only to provide the extension's single purpose: improving Codeforces for practice with themes and practice tools.</p>
 <h2>Your choices</h2>
 <ul>
 <li><strong>Consent:</strong> the mashup builder shows what it handles and waits for you to agree before it reads your handle or submissions. Without that, the builder stays off; themes, focus mode and the timer still work.</li>
 <li><strong>Timer and notes:</strong> these need no agreement. Use <strong>Reset</strong> on the timer, clear the notes text, or uninstall the extension. "Delete my saved data" on the builder page removes them too.</li>
 <li><strong>Delete:</strong> on the mashup builder page, "Delete my saved data" removes your handle, solved list, history, contests, share codes, timers and notes. "Delete it and withdraw consent" also removes your agreement.</li>
 <li><strong>Settings:</strong> your theme and option choices can be reset by uninstalling the extension. Uninstalling removes the extension's stored data from your browser.</li>
-<li><strong>Chrome Sync:</strong> whether settings sync between your browsers is controlled in Chrome's own sync settings.</li>
+<li><strong>Browser sync:</strong> whether settings sync between your devices is controlled in your browser's own sync settings (Chrome Sync or Firefox Sync).</li>
 </ul>
 <h2>Retention</h2>
 <p>Data stays until you delete it or uninstall the extension. The problemset copy is refreshed every 24 hours and the solved/tried lists after 15 minutes.</p>
