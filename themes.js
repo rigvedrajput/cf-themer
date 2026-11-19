@@ -2,14 +2,15 @@
 
 const CFX_DEFAULTS = {
   theme: 'monokai',
-  codeSize: 0,        // 0 = site default
-  hideTags: false,    // Hide problem tags
-  hideRating: false,  // Hide problem difficulty rating
-  widget: true,       // Floating quick-switch button
-  contrastFix: true,  // Auto-adjust clashing hard-coded colors
-  hideSolved: false,  // Hide solved count
-  problemTools: true, // Problem timer and notes on problem pages
-  focus: false        // Focus mode: problem statement only
+  codeSize: 0,          // 0 = site default
+  hideTags: false,      // Hide problem tags
+  hideRating: false,    // Hide problem difficulty rating
+  widget: true,         // Floating quick-switch button
+  contrastFix: true,    // Auto-adjust clashing hard-coded colors
+  hideSolved: false,    // Hide solved count
+  problemTools: true,   // Problem timer and notes on problem pages
+  timerBehaviour: false, // whether to stop the timer when the tab is out of focus / window is minimized
+  focus: false          // Focus mode: problem statement only
 };
 
 const CFX_THEMES = {
@@ -62,7 +63,7 @@ const CFX_THEMES = {
 
 const CFX_ORDER = Object.keys(CFX_THEMES);
 
-const CFX_BOOLS = ['hideTags', 'hideRating', 'hideSolved', 'widget', 'contrastFix', 'problemTools', 'focus'];
+const CFX_BOOLS = ['hideTags', 'hideRating', 'hideSolved', 'widget', 'contrastFix', 'problemTools', 'timerBehaviour', 'focus'];
 
 // Sanitize settings with fallback to defaults
 function cfxNormalize(raw) {

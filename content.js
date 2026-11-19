@@ -439,7 +439,7 @@
 
   document.addEventListener('visibilitychange', () => {
     if (!PT.data) return;
-    if (document.hidden) { ptStop(); ptSave(); } else { ptStart(); ptPaint(); }
+    if (document.hidden && s.timerBehaviour) { ptStop(); ptSave(); } else { ptStart(); ptPaint(); }
   });
   window.addEventListener('pagehide', () => { if (PT.data) { ptStop(); ptSave(); } });
 

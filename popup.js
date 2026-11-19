@@ -31,12 +31,17 @@ function renderThemes() {
   document.documentElement.style.setProperty('--accent', (cur.vars && cur.vars.accent) || '#8a8fa3');
 }
 
+function check(e, k) {
+  s[k] = e.target.checked;
+  save();
+}
+
 function init() {
   $('ver').textContent = 'v' + chrome.runtime.getManifest().version;
   $('size').value = s.codeSize;
-  for (const k of ['hideTags', 'hideRating', 'hideSolved', 'widget', 'contrastFix', 'problemTools', 'focus']) {
+  for (const k of ['hideTags', 'hideRating', 'hideSolved', 'widget', 'contrastFix', 'problemTools', 'timerBehaviour', 'focus']) {
     $(k).checked = s[k];
-    $(k).addEventListener('change', e => { s[k] = e.target.checked; save(); });
+    $(k).addEventListener('change', e => check(e, k));
   }
   $('size').addEventListener('change', e => {
     s.codeSize = Math.max(0, Math.min(30, parseInt(e.target.value, 10) || 0));
